@@ -67,15 +67,23 @@ const UserLists = (props) => {
 
       <ul>
         {lists.map((list) => {
-          console.log(list);
+          console.log(list.movies);
           return (
             <li key={list.id}>
-              <p>{list.id}</p>
+              {list.id}
+              {Object.entries(list.movies).map((movie, index) => {
+                console.log(movie, "MOVIE ENTRIES");
+                return <p key={index}>{movie[1].title}</p>;
+              })}
             </li>
           );
         })}
       </ul>
-      <UserChoices genreOptions={genreOptions} lists={lists} userInput={userInput}/>
+      <UserChoices
+        genreOptions={genreOptions}
+        lists={lists}
+        userInput={userInput}
+      />
     </>
   );
 };
