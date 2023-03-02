@@ -5,7 +5,7 @@ import { ref, onValue, push, set, update } from "firebase/database";
 import UserChoices from "./UserChoices";
 
 const UserLists = (props) => {
-  const {genreOptions} = props;
+  const { genreOptions } = props;
 
   // lists, setLists in useState as an empty array
   // userInput, setUserInput in useState as quotations
@@ -75,7 +75,7 @@ const UserLists = (props) => {
           );
         })}
       </ul>
-      <UserChoices genreOptions={genreOptions} />
+      <UserChoices genreOptions={genreOptions} lists={lists} userInput={userInput}/>
     </>
   );
 };

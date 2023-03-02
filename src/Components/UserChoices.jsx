@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
+import MovieSearchItem from "./MovieSearchItem";
 
 const UserChoices = (props) => {
-  const { genreOptions } = props;
+  const { genreOptions, lists, userInput } = props;
   const [canSubmit, setCanSubmit] = useState(false);
   const [currentGenre, setCurrentGenre] = useState(0);
   const [results, setResults] = useState([]);
@@ -54,7 +55,8 @@ const UserChoices = (props) => {
               <MovieSearchItem
                 movie={result}
                 index={index}
-                listChoices={lists}
+                lists={lists}
+                userInput={userInput}
               />
             );
           })}
