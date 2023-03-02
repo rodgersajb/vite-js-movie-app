@@ -8,6 +8,8 @@ const UserChoices = (props) => {
   const [results, setResults] = useState([]);
   const [time, setTime] = useState(0);
 
+
+  
   const handleOnSubmit = (event) => {
     event.preventDefault();
     fetch(

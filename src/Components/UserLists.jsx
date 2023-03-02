@@ -70,10 +70,18 @@ const UserLists = (props) => {
           console.log(list.movies);
           return (
             <li key={list.id}>
-              {list.id}
+              <h3>{list.id}</h3>
               {Object.entries(list.movies).map((movie, index) => {
                 console.log(movie, "MOVIE ENTRIES");
-                return <p key={index}>{movie[1].title}</p>;
+                return (
+                  <>
+                    <p key={index}>{movie[1].title}</p>
+                    <img
+                      src={`https://image.tmdb.org/t/p/w200/${movie[1].poster_path}`}
+                      alt=""
+                    />
+                  </>
+                );
               })}
             </li>
           );
