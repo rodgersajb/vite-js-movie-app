@@ -8,8 +8,6 @@ const UserChoices = (props) => {
   const [results, setResults] = useState([]);
   const [time, setTime] = useState(0);
 
-
-  
   const handleOnSubmit = (event) => {
     event.preventDefault();
     fetch(
@@ -26,6 +24,7 @@ const UserChoices = (props) => {
   return (
     <>
       <form action="">
+        <p>I feel like watching a</p>
         <select
           name=""
           onChange={(event) => setCurrentGenre(event.target.value)}
@@ -39,6 +38,7 @@ const UserChoices = (props) => {
             );
           })}
         </select>
+        <p>and my time limit is</p>
 
         <select name="" onChange={(event) => setTime(event.target.value)}>
           <option value="">--please select a time!--</option>

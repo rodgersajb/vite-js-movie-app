@@ -17,6 +17,30 @@ h3 {
   color: $contrast;
 }
 
+select {
+        font-size: 1.6rem;
+        text-align: center;
+        color: $highlights;
+        padding: 5px 10px;
+        background: $contrast;
+        border: 2px solid $contrast;
+        border-radius: 0.8rem;
+        option {
+          background-color: $secondary;
+          text-align: center;
+          padding: 0;
+        }
+      }
+      button {
+        font-size: 1.6rem;
+        border-radius: 0.8rem;
+        &:hover,
+        &:focus {
+          color: $highlights;
+          background-color: $contrast;
+          
+        }
+      }
 
 #movie-id {
   font-size: 1.4rem;

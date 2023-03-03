@@ -1,4 +1,11 @@
 @media (min-width: 320px) {
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        
+        
+    }
     .search-results {
         display: flex;
         flex-direction: column;

@@ -19,6 +19,30 @@ h3 {
   color: #8d0801;
 }
 
+select {
+  font-size: 1.6rem;
+  text-align: center;
+  color: #f4d58d;
+  padding: 5px 10px;
+  background: #8d0801;
+  border: 2px solid #8d0801;
+  border-radius: 0.8rem;
+}
+select option {
+  background-color: #708d81;
+  text-align: center;
+  padding: 0;
+}
+
+button {
+  font-size: 1.6rem;
+  border-radius: 0.8rem;
+}
+button:hover, button:focus {
+  color: #f4d58d;
+  background-color: #8d0801;
+}
+
 #movie-id {
   font-size: 1.4rem;
 }
@@ -311,6 +335,11 @@ html {
 }
 
 @media (min-width: 320px) {
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
   .search-results {
     display: flex;
     flex-direction: column;
@@ -330,24 +359,6 @@ html {
     width: 75%;
     gap: 1rem;
   }
-  .movie-list .flex-container select {
-    font-size: 1.6rem;
-    text-align: center;
-    color: #f4d58d;
-    padding: 5px 10px;
-    background: #8d0801;
-    border: 2px solid #8d0801;
-    border-radius: 0.8rem;
-  }
-  .movie-list .flex-container select option {
-    background-color: #708d81;
-    text-align: center;
-    padding: 0;
-  }
-  .movie-list .flex-container button {
-    font-size: 1.6rem;
-    border-radius: 0.8rem;
-  }
 }
 @media (min-width: 320px) {
   .movie-card {
@@ -365,5 +376,6 @@ html {
     font-size: 1.4rem;
     color: #8d0801;
     text-align: center;
+    width: 85%;
   }
 }/*# sourceMappingURL=style.css.map */
