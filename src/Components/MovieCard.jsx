@@ -7,6 +7,7 @@ function MovieCard(props) {
       <img
         src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`}
         alt={props.overview}
+        className="movie-card"
       />
       <p>{props.overview}</p>
     </>

@@ -39,20 +39,19 @@ function MovieSearchItem(props) {
 
   return (
     <>
-      <ul>
-        <li key={props.index}>
-          <MovieCard {...props.movie} />
-
+      <li className="movie-list" key={props.index}>
+        <MovieCard {...props.movie} />
+        <div className="flex-container">
           <label htmlFor="add-to-list"></label>
           <select onChange={handleMovieOnChange} name="created-lists" id="">
-            <option value="">--Add Movie--</option>
+            <option value="">Add Movie To...</option>
             {props.lists.map((list) => {
-              return <option value={list.key}>{list.id}</option>;
+              return <option id="movie-id" value={list.key}>{list.id}</option>;
             })}
           </select>
           <button onClick={handleOnSubmitChange}>Add</button>
-        </li>
-      </ul>
+        </div>
+      </li>
     </>
   );
 }

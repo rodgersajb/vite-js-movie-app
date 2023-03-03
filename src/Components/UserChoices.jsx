@@ -51,7 +51,7 @@ const UserChoices = (props) => {
         </button>
       </form>
       {results.length > 0 && (
-        <ul>
+        <ul className="search-results">
           {results.map((result, index) => {
             return (
               <MovieSearchItem

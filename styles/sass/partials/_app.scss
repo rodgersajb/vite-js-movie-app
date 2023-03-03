@@ -1,14 +1,9 @@
-.App {
+.wrapper {
+  max-width: 1580px;
+  margin: 0 auto;
+  width: 95%;
   h1 {
     font-size: 4rem;
     color: $bright;
-  }
-  ul {
-    li {
-      color: pink;
-      p {
-        color: pink;
-      }
-    }
   }
 }
