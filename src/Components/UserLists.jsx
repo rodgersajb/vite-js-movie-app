@@ -67,12 +67,10 @@ const UserLists = (props) => {
 
       <ul>
         {lists.map((list) => {
-          console.log(list.movies);
           return (
             <li key={list.id}>
               <h3>{list.id}</h3>
               {Object.entries(list.movies).map((movie, index) => {
-                console.log(movie, "MOVIE ENTRIES");
                 return (
                   <>
                     <p key={index}>{movie[1].title}</p>
