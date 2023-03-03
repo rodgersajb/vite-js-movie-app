@@ -51,6 +51,7 @@ const UserLists = (props) => {
     push(listsRef, userInput);
     setUserInput("");
   };
+
   return (
     <>
       <form action="" onSubmit={handleFormSubmit}>
@@ -65,26 +66,34 @@ const UserLists = (props) => {
         <button onClick={handleSubmit}>SUBMIT</button>
       </form>
 
-      <ul>
-        {lists.map((list) => {
-          return (
-            <li key={list.id}>
-              <h3>{list.id}</h3>
-              {Object.entries(list.movies).map((movie, index) => {
-                return (
-                  <>
-                    <p key={index}>{movie[1].title}</p>
-                    <img
-                      src={`https://image.tmdb.org/t/p/w200/${movie[1].poster_path}`}
-                      alt=""
-                    />
-                  </>
-                );
-              })}
-            </li>
-          );
-        })}
-      </ul>
+      {lists.length > 0 && (
+        <ul className="user-lists">
+          {lists.map((list) => {
+            return (
+              <>
+                <h3>{list.id}</h3>
+                <li key={list.id}>
+                  {list.movies &&
+                    Object.entries(list.movies).map((movie, index) => {
+                      return (
+                        <>
+                          <div className="flex-container">
+                            {/* <p key={index}>{movie[1].title}</p> */}
+                            <img
+                              src={`https://image.tmdb.org/t/p/w200/${movie[1].poster_path}`}
+                              alt=""
+                            />
+                          </div>
+                        </>
+                      );
+                    })}
+                </li>
+              </>
+            );
+          })}
+        </ul>
+      )}
+
       <UserChoices
         genreOptions={genreOptions}
         lists={lists}
