@@ -10,8 +10,15 @@ form {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   overflow-y: hidden;
-  h3 {
-    position: sticky;
+  .list-container {
+    display: flex;
+    gap: 1rem;
+    margin: 3rem;
+
+    h3 {
+      position: sticky;
+      margin: 0;
+    }
   }
 
   li {
