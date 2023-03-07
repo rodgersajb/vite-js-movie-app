@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { db } from "./Firebase";
-import { ref, onValue, push, set, update } from "firebase/database";
+import { ref, onValue, push, set, update, remove } from "firebase/database";
 import UserChoices from "./UserChoices";
 
 const UserLists = (props) => {
@@ -52,6 +52,12 @@ const UserLists = (props) => {
     setUserInput("");
   };
 
+  const handleRemove = (listId) => {
+    console.log(listId);
+    const listRef = ref(db, `lists/${listId}`);
+    remove(listRef);
+  };
+
   return (
     <>
       <form action="" onSubmit={handleFormSubmit}>
@@ -62,8 +68,8 @@ const UserLists = (props) => {
             onChange={handleInputChange}
             value={userInput}
           />
-          <button onClick={handleSubmit}>SUBMIT</button>
         </label>
+        <button onClick={handleSubmit}>SUBMIT</button>
       </form>
 
       {lists.length > 0 && (
@@ -71,8 +77,11 @@ const UserLists = (props) => {
           {lists.map((list) => {
             return (
               <>
-                <h3>{list.id}</h3>
-                <li className=""key={list.id}>
+                <div className="list-container">
+                  <h3>{list.id}</h3>
+                  <button onClick={() => handleRemove(list.id)}>Remove</button>
+                </div>
+                <li className="" key={list.id}>
                   {list.movies &&
                     Object.entries(list.movies).map((movie, index) => {
                       return (
