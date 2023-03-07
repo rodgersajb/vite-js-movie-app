@@ -8,7 +8,12 @@
       flex-direction: column;
       width: 75%;
       gap: 1rem;
-      
+      select {
+        font-size: 1.6rem;
+      }
+      button {
+        font-size: 1.6rem;
+      }
     }
   }
 }

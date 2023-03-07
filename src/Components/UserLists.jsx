@@ -62,8 +62,8 @@ const UserLists = (props) => {
             onChange={handleInputChange}
             value={userInput}
           />
+          <button onClick={handleSubmit}>SUBMIT</button>
         </label>
-        <button onClick={handleSubmit}>SUBMIT</button>
       </form>
 
       {lists.length > 0 && (
@@ -72,7 +72,7 @@ const UserLists = (props) => {
             return (
               <>
                 <h3>{list.id}</h3>
-                <li key={list.id}>
+                <li className=""key={list.id}>
                   {list.movies &&
                     Object.entries(list.movies).map((movie, index) => {
                       return (

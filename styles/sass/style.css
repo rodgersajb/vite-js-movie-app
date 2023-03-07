@@ -317,6 +317,11 @@ html {
   color: #bf0603;
 }
 
+form {
+  display: flex;
+  align-items: center;
+}
+
 .user-lists {
   display: flex;
   flex-direction: column;
