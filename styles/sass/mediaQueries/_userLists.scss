@@ -2,14 +2,31 @@
   .user-list-form {
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+
     label {
-      height: 2rem;
+      display: flex;
+      flex-direction: column;
+      font-size: 1.8rem;
+      width: 75%;
+      color: $highlights;
+
       input {
-        height: 2rem;
+        height: 3rem;
+        background: transparent;
+        border: 3px solid $contrast;
+        outline: none;
+        border-radius: 2px 0 0 2px;
+        color: $highlights;
       }
     }
     button {
-      width: 25%;
+      border-radius: 0 2px 2px 0;
+      width: 10%;
+      font-size: 1.6rem;
+      padding: 0.58rem;
     }
   }
   .user-lists {

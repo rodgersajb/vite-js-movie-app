@@ -3,8 +3,7 @@ import { useState, useEffect } from "react";
 import { db } from "./Firebase";
 import { ref, onValue, push, set, update, remove } from "firebase/database";
 import UserChoices from "./UserChoices";
-// import { FontAwesomeIcon } from "@fortawesome/fontawesome-free";
-
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const UserLists = (props) => {
   const { genreOptions } = props;
 
@@ -62,7 +61,7 @@ const UserLists = (props) => {
   return (
     <>
       <form className="user-list-form" action="" onSubmit={handleFormSubmit}>
-        <label htmlFor="new-list">Create a list!
+        <label htmlFor="new-list">
           <input
             type="text"
             id="new-list"
@@ -70,9 +69,7 @@ const UserLists = (props) => {
             value={userInput}
           />
         </label>
-        <button onClick={handleSubmit}>
-          {/* <FontAwesomeIcon icon="fa-solid fa-plus" /> */}
-        </button>
+        <button onClick={handleSubmit}>+</button>
       </form>
 
       {lists.length > 0 && (
