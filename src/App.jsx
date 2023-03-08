@@ -2,28 +2,25 @@ import { useState, useEffect } from "react";
 import "../styles/sass/style.scss";
 import UserLists from "./Components/UserLists";
 import UserChoices from "./Components/UserChoices";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 function App() {
-  
-  const [genreOptions, setGenreOptions] = useState([])
+  const [genreOptions, setGenreOptions] = useState([]);
 
-    useEffect(() => {
-      
-      fetch(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=a5e87382f2c41fc47e2facb317187475`
-      )
-        .then((response) => response.json())
-        .then((data) => setGenreOptions(data.genres));
-    }, []);
-  
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/genre/movie/list?api_key=a5e87382f2c41fc47e2facb317187475`
+    )
+      .then((response) => response.json())
+      .then((data) => setGenreOptions(data.genres));
+  }, []);
 
   return (
     <>
       <div className="wrapper">
-        <h1>HEYYYYYYYYYYYYY</h1>
-        <UserLists genreOptions={genreOptions}/>
-        
-        
+        <h1>HEYYYY</h1>
+        <UserLists genreOptions={genreOptions} />
       </div>
     </>
   );

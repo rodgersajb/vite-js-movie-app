@@ -1,11 +1,15 @@
-@media (mind-width: 320px) {
-  form {
+@media (min-width: 320px) {
+  .user-list-form {
     display: flex;
+    flex-direction: row;
     label {
       height: 2rem;
       input {
         height: 2rem;
       }
+    }
+    button {
+      width: 25%;
     }
   }
   .user-lists {
