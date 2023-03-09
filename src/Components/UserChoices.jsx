@@ -59,6 +59,7 @@ const UserChoices = (props) => {
                 index={index}
                 lists={lists}
                 userInput={userInput}
+                key={index}
               />
             );
           })}

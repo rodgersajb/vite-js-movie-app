@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { db } from "./Firebase";
 import { ref, onValue, push, set, update, remove } from "firebase/database";
 import UserChoices from "./UserChoices";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const UserLists = (props) => {
   const { genreOptions } = props;
 
@@ -68,16 +68,16 @@ const UserLists = (props) => {
             onChange={handleInputChange}
             value={userInput}
           />
+          <button onClick={handleSubmit}></button>
         </label>
-        <button onClick={handleSubmit}>+</button>
       </form>
 
       {lists.length > 0 && (
         <ul className="user-lists">
-          {lists.map((list) => {
+          {lists.map((list, index) => {
             return (
               <>
-                <div className="list-container">
+                <div key={index} className="list-container">
                   <h3>{list.id}</h3>
                   <button onClick={() => handleRemove(list.id)}>Remove</button>
                 </div>
@@ -86,7 +86,7 @@ const UserLists = (props) => {
                     Object.entries(list.movies).map((movie, index) => {
                       return (
                         <>
-                          <div className="flex-container">
+                          <div key={index} className="flex-container">
                             {/* <p key={index}>{movie[1].title}</p> */}
                             <img
                               src={`https://image.tmdb.org/t/p/w200/${movie[1].poster_path}`}
