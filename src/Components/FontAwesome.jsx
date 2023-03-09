@@ -4,4 +4,4 @@ import {
   
 } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlus)
+library.add(faPlus);

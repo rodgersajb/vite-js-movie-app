@@ -30,14 +30,23 @@
     }
   }
   .user-lists {
+    // overflow-x: auto;
+    // scroll-snap-type: x mandatory;
+    // scroll-behavior: smooth;
+    // overflow-y: hidden;
     .list-container {
-      display: flex;
-      gap: 2rem;
-      border: 6px solid purple;
       h3 {
-        font-size: 6rem;
+        font-size: 3rem;
       }
       button {
+      }
+    }
+    li {
+      display: flex;
+      gap: 2rem;
+
+      width: 95%;
+      .flex-container {
       }
     }
   }
