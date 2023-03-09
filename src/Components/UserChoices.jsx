@@ -7,15 +7,23 @@ const UserChoices = (props) => {
   const [currentGenre, setCurrentGenre] = useState(0);
   const [results, setResults] = useState([]);
   const [time, setTime] = useState(0);
+  const [loading, setLoading] = useState(false);
 
-  const handleOnSubmit = (event) => {
+  async function handleOnSubmit(event) {
+    setLoading(true);
     event.preventDefault();
-    fetch(
+    const response = await fetch(
       `https://api.themoviedb.org/3/discover/movie?with_genres=${currentGenre}&with_runtine.lte=${time}include_video=true&include_adult=false&api_key=a5e87382f2c41fc47e2facb317187475`
-    )
-      .then((response) => response.json())
-      .then((data) => setResults(data.results));
-  };
+    );
+    if (!response.ok) {
+      const message = `An error has occured: ${response.status}`;
+      throw new Error(message);
+    }
+    const movies = await response.json();
+
+    setResults(movies.results);
+    setLoading(false);
+  }
 
   useEffect(() => {
     setCanSubmit(time > 0 && currentGenre > 0);
@@ -51,19 +59,24 @@ const UserChoices = (props) => {
         </button>
       </form>
       {results.length > 0 && (
-        <ul className="search-results">
-          {results.map((result, index) => {
-            return (
-              <MovieSearchItem
-                movie={result}
-                index={index}
-                lists={lists}
-                userInput={userInput}
-                key={index}
-              />
-            );
-          })}
-        </ul>
+        <>
+          {loading && <p>It' loading</p>}
+          {!loading && (
+            <ul className="search-results">
+              {results.map((result, index) => {
+                return (
+                  <MovieSearchItem
+                    movie={result}
+                    index={index}
+                    lists={lists}
+                    userInput={userInput}
+                    key={index}
+                  />
+                );
+              })}
+            </ul>
+          )}
+        </>
       )}
     </>
   );
