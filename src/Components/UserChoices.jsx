@@ -55,7 +55,7 @@ const UserChoices = (props) => {
           <option value="900">All the time in the World</option>
         </select>
         <button onClick={handleOnSubmit} disabled={!canSubmit}>
-          FIND ME MOVIES
+          🍿 FIND ME MOVIES 🍿
         </button>
       </form>
       {results.length > 0 && (

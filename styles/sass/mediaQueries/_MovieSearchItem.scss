@@ -28,24 +28,9 @@
     grid-template-rows: auto;
 
     .movie-list {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-evenly;
-      h2 {
-        height: 5rem;
-      }
-      p {
-        height: 25rem;
-      }
-
-      .flex-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-evenly;
-
-        gap: 0.6rem;
+      
+      .flex-container {    
+        
         width: 75%;
         select {
           font-size: 1.4rem;
@@ -56,6 +41,51 @@
           width: 50%;
           padding: 0.8rem 0
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .search-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    
+    .movie-list {
+      h2 {
+        height: 6rem;
+      }
+      p {
+        height: 40rem;
+      }
+      .flex-container {
+        flex-direction: column;
+        select {
+          width: 125%;
+        }
+        button {
+          width: 125%;
+        }
+      }
+    }
+
+  }
+
+} 
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .search-results {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    .movie-list {
+      .flex-container {
+        flex-direction: column;
+        select,
+        button {
+          width: 150%;
+
+        }
+        
       }
     }
   }
