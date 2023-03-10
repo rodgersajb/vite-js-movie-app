@@ -19,7 +19,7 @@ function App() {
   return (
     <>
       <div className="wrapper">
-        <h1>HEYYYY</h1>
+        <h1>Movieflix</h1>
         <UserLists genreOptions={genreOptions} />
       </div>
     </>

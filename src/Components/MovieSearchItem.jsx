@@ -3,9 +3,9 @@ import { ref, onValue, push, set, update } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 
-
 function MovieSearchItem(props) {
   const { movie, index, lists, userInput } = props;
+  console.log(movie, 'this is omovie?')
 
   const [selectedList, setSelectedList] = useState([]);
   // const [selectedMovie, setSelectedMovie] = useState([]);
@@ -45,9 +45,15 @@ function MovieSearchItem(props) {
         <div className="flex-container">
           <label htmlFor="add-to-list"></label>
           <select onChange={handleMovieOnChange} name="created-lists" id="">
-            <option value="">Add Movie To...</option>
+            <option value="">Add {movie.title} To...</option>
             {props.lists.map((list) => {
-              return <option id="movie-id" value={list.key}>{list.id}</option>;
+              return (
+                <>
+                  <option id="movie-id" value={list.key}>
+                    {list.id}
+                  </option>
+                </>
+              );
             })}
           </select>
           <button onClick={handleOnSubmitChange}>🍿 Add 🍿</button>

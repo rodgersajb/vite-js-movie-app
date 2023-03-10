@@ -85,3 +85,14 @@
     }
   }
 }
+
+@media (min-width: 1281px) {
+  .user-lists {
+    li {
+      flex-wrap: wrap;
+      .flex-container {
+        width: 23%;
+      }
+    }
+  }
+}

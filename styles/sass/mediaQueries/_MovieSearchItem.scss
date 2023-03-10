@@ -10,12 +10,13 @@
         flex-direction: column;
         width: 75%;
         gap: 1rem;
-        select {
-          font-size: 1.6rem;
-        }
+        select,
         button {
           font-size: 1.6rem;
+          width: 100%;
+          
         }
+        
       }
     }
   }
@@ -38,7 +39,7 @@
         }
         button {
           font-size: 1.4rem;
-          width: 50%;
+          width: 75%;
           padding: 0.8rem 0
         }
       }
@@ -78,6 +79,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     .movie-list {
+      h2 {
+        font-size: 3rem;
+      }
       .flex-container {
         flex-direction: column;
         select,
@@ -87,6 +91,27 @@
         }
         
       }
+    }
+  }
+}
+
+@media (min-width: 1281px) {
+  .search-results {
+    .movie-list {
+      p {
+        height: 40rem;
+      }
+      h2 {
+        font-size: 3rem;
+      }
+    }
+    .flex-container {
+      
+      select,
+      button {
+        width: 150%;
+      }
+
     }
   }
 }
