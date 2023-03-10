@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import MovieSearchItem from "./MovieSearchItem";
-
+import Slider from "../Hooks/Slider";
 const UserChoices = (props) => {
   const { genreOptions, lists, userInput } = props;
   const [canSubmit, setCanSubmit] = useState(false);
@@ -60,10 +60,11 @@ const UserChoices = (props) => {
       </form>
       {results.length > 0 && (
         <>
-          {loading && <p>It' loading</p>}
+          {loading && <p>It's loading</p>}
           {!loading && (
             <ul className="search-results">
               {results.map((result, index) => {
+                
                 return (
                   <MovieSearchItem
                     movie={result}

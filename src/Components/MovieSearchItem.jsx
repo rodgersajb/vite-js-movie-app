@@ -3,6 +3,7 @@ import { ref, onValue, push, set, update } from "firebase/database";
 import React, { useEffect, useState } from "react";
 import MovieCard from "./MovieCard";
 
+
 function MovieSearchItem(props) {
   const { movie, index, lists, userInput } = props;
 
@@ -49,7 +50,7 @@ function MovieSearchItem(props) {
               return <option id="movie-id" value={list.key}>{list.id}</option>;
             })}
           </select>
-          <button onClick={handleOnSubmitChange}>Add</button>
+          <button onClick={handleOnSubmitChange}>🍿 Add 🍿</button>
         </div>
       </li>
     </>

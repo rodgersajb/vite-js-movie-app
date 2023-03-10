@@ -10,7 +10,7 @@
       display: flex;
 
       font-size: 1.8rem;
-      // width: 75%;
+
       color: $highlights;
 
       input {
@@ -35,10 +35,6 @@
     }
   }
   .user-lists {
-    // overflow-x: auto;
-    // scroll-snap-type: x mandatory;
-    // scroll-behavior: smooth;
-    // overflow-y: hidden;
     .list-container {
       h3 {
         font-size: 3rem;
@@ -53,6 +49,38 @@
 
       width: 95%;
       .flex-container {
+      }
+    }
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .user-lists {
+    li {
+      .flex-container {
+        width: 47%;
+      }
+    }
+
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .user-lists {
+    li {
+      .flex-container {
+        width: 31%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .user-lists {
+    li {
+      flex-wrap: wrap;
+      .flex-container {
+        width: 23%;
       }
     }
   }
