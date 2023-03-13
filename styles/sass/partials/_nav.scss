@@ -1,0 +1,25 @@
+nav {
+  border-bottom: 5px solid $primary;
+  background: $highlights;
+  padding: 2rem 0;
+  position: relative;
+  &::after,
+  &::before {
+    position:absolute;
+    content: '';
+    width: 150px;
+    height: 150px;
+    background:pink;
+    bottom: 0;
+  }
+  &::before {
+    right: 50%;
+    transform: skew(20deg);
+  }
+
+  h1 {
+    font-size: 4rem;
+    color: $bright;
+    margin: 0;
+  }
+}

@@ -3,7 +3,7 @@ import "../styles/sass/style.scss";
 import UserLists from "./Components/UserLists";
 import UserChoices from "./Components/UserChoices";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import Nav from "./Components/Navbar";
 
 function App() {
   const [genreOptions, setGenreOptions] = useState([]);
@@ -18,8 +18,8 @@ function App() {
 
   return (
     <>
+      <Nav />
       <div className="wrapper">
-        <h1>Movieflix</h1>
         <UserLists genreOptions={genreOptions} />
       </div>
     </>
