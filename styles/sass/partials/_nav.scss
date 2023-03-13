@@ -1,25 +1,44 @@
 nav {
-  border-bottom: 5px solid $primary;
-  background: $highlights;
+  background: $primary;
   padding: 2rem 0;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 5px solid $highlights;
+  z-index: 999;
   &::after,
   &::before {
-    position:absolute;
-    content: '';
-    width: 150px;
+    position: absolute;
+    content: "";
+    width: 100px;
     height: 150px;
-    background:pink;
-    bottom: 0;
+    background: $primary;
+    bottom: -2.3rem;
+    border-bottom: 5px solid $highlights;
+    z-index: 0;
   }
   &::before {
     right: 50%;
-    transform: skew(20deg);
+    transform: skew(0, 20deg);
+  }
+  &::after {
+    left: 50%;
+    transform: skew(0, -20deg);
   }
 
   h1 {
     font-size: 4rem;
-    color: $bright;
+    color: $highlights;
     margin: 0;
+    z-index: 999;
+    margin-bottom: 20px;
+  }
+  img {
+    height: 40%;
+    width: 5%;
+    position: absolute;
+    bottom: -5rem;
+    z-index: 20;
   }
 }
