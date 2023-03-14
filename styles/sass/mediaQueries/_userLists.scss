@@ -1,39 +1,5 @@
 @media (min-width: 320px) {
-  .user-list-form {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 0;
-
-    label {
-      display: flex;
-
-      font-size: 1.8rem;
-
-      color: $highlights;
-
-      input {
-        height: 3rem;
-
-        border: 3px solid $contrast;
-        border-right: none;
-        outline: none;
-        border-radius: 25px 0 0 25px;
-        color: $highlights;
-      }
-    }
-    button {
-      border-radius: 0 2px 2px 0;
-      width: 10%;
-      font-size: 1.6rem;
-      padding: 0.58rem;
-      border: 3px solid $contrast;
-      border-left: none;
-      border-radius: 0 25px 25px 0;
-      background: #fff;
-    }
-  }
+  
   .user-lists {
     .list-container {
       h3 {
