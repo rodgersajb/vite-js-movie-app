@@ -68,15 +68,16 @@ const Nav = (props) => {
               id="new-list"
               onChange={handleInputChange}
               value={userInput}
+              placeholder="create a list"
             />
-            <button onClick={handleSubmit}>🍿</button>
+            <button className="nav-button" onClick={handleSubmit}>🍿</button>
           </label>
         </form>
       </nav>
 
       <div className="wrapper">
-        <h2>Your Lists</h2>
-        <UserLists lists={lists} genreOptions={genreOptions} />
+        <h2 className="list-header">Your Lists</h2>
+        <UserLists lists={lists} genreOptions={genreOptions} userInput={userInput}/>
       </div>
     </>
   );

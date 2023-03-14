@@ -5,7 +5,7 @@ import { ref, onValue, push, set, update, remove } from "firebase/database";
 import UserChoices from "./UserChoices";
 
 const UserLists = (props) => {
-  const { lists, genreOptions } = props;
+  const { lists, genreOptions, userInput } = props;
   console.log(lists, "lists");
   const handleRemove = (listId) => {
     console.log(listId);
@@ -50,7 +50,7 @@ const UserLists = (props) => {
       <UserChoices
         genreOptions={genreOptions}
         lists={lists}
-        // userInput={userInput}
+        userInput={userInput}
       />
     </>
   );
