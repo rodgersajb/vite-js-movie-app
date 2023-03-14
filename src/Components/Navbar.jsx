@@ -12,7 +12,6 @@ const Nav = (props) => {
   const [lists, setLists] = useState([]);
   const [userInput, setUserInput] = useState("");
 
-  console.log(lists, 'nacv lists')
   // UseEffect to create a snapshot of firebase
   // Convert Object into an array, mapping through the data received from the snapshot
   // return and id of key and a copy of data with and index of key
@@ -30,7 +29,7 @@ const Nav = (props) => {
             })
           : [];
         setLists(list);
-        console.log(list, 'list')
+        console.log(list, "list");
       },
       []
     );
@@ -54,17 +53,15 @@ const Nav = (props) => {
     setUserInput("");
   };
 
-  const handleRemove = (listId) => {
-    console.log(listId);
-    const listRef = ref(db, `lists/${listId}`);
-    remove(listRef);
-  };
   return (
     <>
       <nav>
+        <div>
+          <p>AR</p>
+        </div>
         <h1>The Moviebase</h1>
         <img src="public/popcorn.png" alt="" />
-        
+        <form className="form-submit" onSubmit={handleFormSubmit}>
           <label htmlFor="new-list">
             <input
               type="text"
@@ -72,14 +69,15 @@ const Nav = (props) => {
               onChange={handleInputChange}
               value={userInput}
             />
-            <button onClick={handleSubmit}></button>
+            <button onClick={handleSubmit}>🍿</button>
           </label>
-        
+        </form>
       </nav>
-      
-        
-          <UserLists lists={lists} genreOptions={genreOptions} />
-      
+
+      <div className="wrapper">
+        <h2>Your Lists</h2>
+        <UserLists lists={lists} genreOptions={genreOptions} />
+      </div>
     </>
   );
 };

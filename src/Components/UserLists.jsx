@@ -6,7 +6,7 @@ import UserChoices from "./UserChoices";
 
 const UserLists = (props) => {
   const { lists, genreOptions } = props;
-  console.log(lists, 'lists')
+  console.log(lists, "lists");
   const handleRemove = (listId) => {
     console.log(listId);
     const listRef = ref(db, `lists/${listId}`);
@@ -16,9 +16,7 @@ const UserLists = (props) => {
   return (
     <>
       
-
       {lists && lists.length > 0 && (
-
         <ul className="user-lists">
           {lists.map((list, index) => {
             return (
@@ -48,7 +46,6 @@ const UserLists = (props) => {
           })}
         </ul>
       )}
-      
 
       <UserChoices
         genreOptions={genreOptions}

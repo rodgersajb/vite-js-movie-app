@@ -18,9 +18,9 @@ function App() {
 
   return (
     <>
-      <Nav genreOptions={genreOptions} />
-      <div className="wrapper">
-        <UserLists genreOptions={genreOptions} />
+      <div className="app">
+        
+        <Nav genreOptions={genreOptions} />
       </div>
     </>
   );
