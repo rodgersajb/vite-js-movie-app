@@ -1,12 +1,12 @@
 .modal {
-  z-index: 999;  
-  top: 0;
-  right: 0;
-  height: 100vh;
+  z-index: 999;
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  // height: 100vh;
   border: 3px solid $primary;
   border-radius: 2rem;
+  transform: translate(-50%, -50%);
 
-  margin: 0 auto;
-  
- 
+  // margin: 0 auto;
 }

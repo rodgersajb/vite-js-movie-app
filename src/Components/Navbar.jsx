@@ -59,8 +59,8 @@ const Nav = (props) => {
         <div>
           <p>AR</p>
         </div>
-        <h1>The Moviebase</h1>
         <img src="public/popcorn.png" alt="" />
+        <h1>The Moviebase</h1>
         <form className="form-submit" onSubmit={handleFormSubmit}>
           <label htmlFor="new-list">
             <input

@@ -3,10 +3,11 @@ import { useState, useEffect } from "react";
 import { db } from "./Firebase";
 import { ref, onValue, push, set, update, remove } from "firebase/database";
 import UserChoices from "./UserChoices";
+import MovieListCard from "./MovieListCard";
 
 const UserLists = (props) => {
   const { lists, genreOptions, userInput } = props;
-  console.log(lists, "lists");
+ 
   const handleRemove = (listId) => {
     console.log(listId);
     const listRef = ref(db, `lists/${listId}`);
@@ -15,7 +16,6 @@ const UserLists = (props) => {
 
   return (
     <>
-      
       {lists && lists.length > 0 && (
         <ul className="user-lists">
           {lists.map((list, index) => {
@@ -28,15 +28,14 @@ const UserLists = (props) => {
                 <li className="" key={list.id}>
                   {list.movies &&
                     Object.entries(list.movies).map((movie, index) => {
+                      console.log(movie, "MOVIE FROM USERLIST");
                       return (
                         <>
-                          <div key={index} className="flex-container">
-                            {/* <p key={index}>{movie[1].title}</p> */}
-                            <img
-                              src={`https://image.tmdb.org/t/p/w200/${movie[1].poster_path}`}
-                              alt=""
-                            />
-                          </div>
+                          <MovieListCard
+                            movie={movie[1]}
+                            listId={list.id}
+                            movieKey={movie[0]}
+                          />
                         </>
                       );
                     })}
