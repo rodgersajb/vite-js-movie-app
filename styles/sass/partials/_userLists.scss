@@ -2,6 +2,11 @@ form {
   display: flex;
   align-items: center;
 }
+.no-lists {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .user-lists {
   display: flex;
   flex-direction: column;
