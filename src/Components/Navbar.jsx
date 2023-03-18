@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 import { db } from "./Firebase";
-import { ref, onValue, push, set, update, remove } from "firebase/database";
+import { ref, onValue, push, set } from "firebase/database";
 import UserLists from "./UserLists";
 
 const Nav = (props) => {
@@ -11,6 +11,8 @@ const Nav = (props) => {
   // userInput, setUserInput in useState as quotations
   const [lists, setLists] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [isValidInput, setIsValidInput] = useState(true);
+  const [message, setMessage] = useState(false);
 
   // UseEffect to create a snapshot of firebase
   // Convert Object into an array, mapping through the data received from the snapshot
@@ -48,9 +50,20 @@ const Nav = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const listsRef = ref(db, `lists/${userInput}`);
-    push(listsRef, userInput);
-    setUserInput("");
+
+    if (userInput.length < 3) {
+      setIsValidInput(false);
+      setMessage(true);
+      setTimeout(() => {
+        setMessage(false)
+      }, 4000);
+    } else {
+      setMessage(false);
+      setIsValidInput(true);
+      const listsRef = ref(db, `lists/${userInput}`);
+      push(listsRef, userInput);
+      setUserInput("");
+    }
   };
 
   return (
@@ -70,14 +83,22 @@ const Nav = (props) => {
               value={userInput}
               placeholder="create a list"
             />
-            <button className="nav-button" onClick={handleSubmit}>🍿</button>
+            <button className="nav-button" onClick={handleSubmit}>
+              🍿
+            </button>
+            {!isValidInput && message &&
+              (<div>Please enter at least three characters</div>)}
           </label>
         </form>
       </nav>
 
       <div className="wrapper">
         <h2 className="list-header">Your Lists</h2>
-        <UserLists lists={lists} genreOptions={genreOptions} userInput={userInput}/>
+        <UserLists
+          lists={lists}
+          genreOptions={genreOptions}
+          userInput={userInput}
+        />
       </div>
     </>
   );
