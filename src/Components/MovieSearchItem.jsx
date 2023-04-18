@@ -44,13 +44,11 @@ function MovieSearchItem(props) {
   }, [canadaStreamingInfo]);
 
   const streamingSites = useMemo(() => {
-    return  canadaStreamingInfo ? Object.keys(canadaStreamingInfo) : null;
+    return canadaStreamingInfo ? Object.keys(canadaStreamingInfo) : null;
   }, [canadaStreamingInfo]);
   // if there is a flaterate offered for the movie, capture in variable
 
   console.log(inCanada, "IN CANADA");
-
- 
 
   if (!canadaStreamingInfo || Object.keys(canadaStreamingInfo).length === 0) {
     return <div>This movie is not available for streaming in Canada</div>;
@@ -72,14 +70,20 @@ function MovieSearchItem(props) {
     <>
       <li className="movie-list" key={props.index}>
         {inCanada[2] ? (
-          <div> This movie is available to watch on: {
-            Object.values(inCanada[2]).map((logo, index) => {
-              console.log(logo, 'IMG')
+          <div>
+            {" "}
+            This movie is available to watch on:{" "}
+            {Object.values(inCanada[2]).map((logo, index) => {
+              console.log(logo.logo_path, "IMG");
               return (
-                <img src={logo.logo_path}/>
-              )
-            })
-            }</div>
+                <div className="image-container">
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200/${logo.logo_path}`}
+                  />
+                </div>
+              );
+            })}
+          </div>
         ) : (
           <div>This movie is not available for streaming in Canada</div>
         )}
