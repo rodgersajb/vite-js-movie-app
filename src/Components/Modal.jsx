@@ -46,7 +46,7 @@ const Modal = (props) => {
                 <p>Released on {props.release_date}</p>
               </div>
             </div>
-            <h5>Available in 🍁:</h5>
+            <h5>Streaming availability in 🍁:</h5>
             <div className="image-container">
               {props[1] ? (
                 Object.values(
