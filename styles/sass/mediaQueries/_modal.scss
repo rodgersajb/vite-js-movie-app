@@ -1,0 +1,86 @@
+@media (min-width:320px) and (max-width: 480px) {
+    .modal-container {
+        .modal {
+            height: 70%;
+            width: 90%;
+            .container {
+                flex-direction: column;
+                img {
+                    height: 20rem;
+                    width: 100%;
+                }
+                .content {
+                    width: 100%;
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+            button {
+                right: 0;
+                top: 0;
+            }
+        }
+    }
+}
+
+@media (min-width:481px)  and (max-width: 768px) {
+ .modal-container {
+        .modal {
+            height: 70%;
+            width: 90%;
+            .container {
+                flex-direction: column;
+                img {
+                    height: 30rem;
+                    width: 100%;
+                }
+                .content {
+                    width: 100%;
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+            button {
+                right: 10px;
+                top: 10px;
+            }
+        }
+    }
+}
+
+@media (min-width:769px) and (max-width:1024px) {
+     .modal-container {
+        .modal {
+            height: 70%;
+            width: 80%;
+            .container {
+                
+                img {
+                    height: 30rem;
+                    width: 100%;
+                }
+                .content {
+                    width: 100%;
+                    p {
+                        text-align: center;
+                    }
+                }
+            }
+            button {
+                right: 10px;
+                top: 10px;
+            }
+        }
+    }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+}
+
+@media (min-width: 1281px) {
+    
+}

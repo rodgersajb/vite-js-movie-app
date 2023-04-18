@@ -20,10 +20,13 @@ form {
     display: flex;
     align-items: center;
     width: 50%;
+    cursor: pointer;
   }
   button {
     width: 50%;
     font-size: 2rem;
+    border: 2px solid;
+    cursor: pointer;
     &:hover,
     &:focus {
       border: 2px solid $highlights;
