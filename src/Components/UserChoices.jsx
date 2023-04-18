@@ -64,7 +64,6 @@ const UserChoices = (props) => {
           {!loading && (
             <ul className="search-results">
               {results.map((result, index) => {
-                console.log(result, "RESULT");
                 return (
                   <MovieSearchItem
                     movie={result}
@@ -72,6 +71,7 @@ const UserChoices = (props) => {
                     lists={lists}
                     userInput={userInput}
                     key={index}
+                    movieId={result.id}
                   />
                 );
               })}

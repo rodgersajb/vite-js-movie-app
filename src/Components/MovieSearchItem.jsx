@@ -1,18 +1,23 @@
 import { db } from "./Firebase";
 import { ref, onValue, push, set, update } from "firebase/database";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import MovieCard from "./MovieCard";
 
 function MovieSearchItem(props) {
-  const { movie, index, lists, userInput } = props;
-  console.log(movie, 'this is omovie?')
+  const { movie, index, lists, userInput, movieId } = props;
 
   const [selectedList, setSelectedList] = useState([]);
-  // const [selectedMovie, setSelectedMovie] = useState([]);
 
-  const handleMovieOnChange = (event) => {
-    setSelectedList(event.target.value);
-  };
+  const [canadaStreamingInfo, setCanadaStreamingInfo] = useState([]);
+  const [inUS, setInUS] = useState("");
+
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=a5e87382f2c41fc47e2facb317187475`
+    )
+      .then((response) => response.json())
+      .then((data) => setCanadaStreamingInfo(data.results.CA, "DATA"));
+  }, [movieId]);
 
   useEffect(() => {
     const dbMovieRef = ref(db, `lists/${selectedList}/movies/${userInput}`);
@@ -32,6 +37,31 @@ function MovieSearchItem(props) {
     });
   }, []);
 
+  // convert object returned from API into an array
+
+  const inCanada = useMemo(() => {
+    return canadaStreamingInfo ? Object.values(canadaStreamingInfo) : null;
+  }, [canadaStreamingInfo]);
+
+  const streamingSites = useMemo(() => {
+    return  canadaStreamingInfo ? Object.keys(canadaStreamingInfo) : null;
+  }, [canadaStreamingInfo]);
+  // if there is a flaterate offered for the movie, capture in variable
+
+  console.log(inCanada, "IN CANADA");
+
+ 
+
+  if (!canadaStreamingInfo || Object.keys(canadaStreamingInfo).length === 0) {
+    return <div>This movie is not available for streaming in Canada</div>;
+  }
+
+  console.log(streamingSites, "Streaming sites");
+
+  const handleMovieOnChange = (event) => {
+    setSelectedList(event.target.value);
+  };
+
   const handleOnSubmitChange = (event) => {
     event.preventDefault();
     const movieRef = ref(db, `lists/${selectedList}/movies/${userInput}`);
@@ -41,7 +71,19 @@ function MovieSearchItem(props) {
   return (
     <>
       <li className="movie-list" key={props.index}>
-        <MovieCard {...props.movie} />
+        {inCanada[2] ? (
+          <div> This movie is available to watch on: {
+            Object.values(inCanada[2]).map((logo, index) => {
+              console.log(logo, 'IMG')
+              return (
+                <img src={logo.logo_path}/>
+              )
+            })
+            }</div>
+        ) : (
+          <div>This movie is not available for streaming in Canada</div>
+        )}
+        <MovieCard {...props.movie} canadaStreamingInfo={canadaStreamingInfo} />
         <div className="flex-container">
           <label htmlFor="add-to-list"></label>
           <select onChange={handleMovieOnChange} name="created-lists" id="">

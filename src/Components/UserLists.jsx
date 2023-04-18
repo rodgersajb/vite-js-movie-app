@@ -40,13 +40,13 @@ const UserLists = (props) => {
                   <li className="" key={list.id}>
                     {list.movies &&
                       Object.entries(list.movies).map((movie, index) => {
-                        console.log(movie, "MOVIE FROM USERLIST");
                         return (
                           <>
                             <MovieListCard
                               movie={movie[1]}
                               listId={list.id}
                               movieKey={movie[0]}
+                              key={index}
                             />
                           </>
                         );

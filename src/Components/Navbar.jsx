@@ -31,7 +31,6 @@ const Nav = (props) => {
             })
           : [];
         setLists(list);
-        console.log(list, "list");
       },
       []
     );
@@ -55,7 +54,7 @@ const Nav = (props) => {
       setIsValidInput(false);
       setMessage(true);
       setTimeout(() => {
-        setMessage(false)
+        setMessage(false);
       }, 4000);
     } else {
       setMessage(false);
@@ -86,8 +85,9 @@ const Nav = (props) => {
             <button className="nav-button" onClick={handleSubmit}>
               🍿
             </button>
-            {!isValidInput && message &&
-              (<div>Please enter at least three characters</div>)}
+            {!isValidInput && message && (
+              <div>Please enter at least three characters</div>
+            )}
           </label>
         </form>
       </nav>
