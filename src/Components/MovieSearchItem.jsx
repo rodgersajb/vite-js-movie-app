@@ -44,14 +44,14 @@ function MovieSearchItem(props) {
   }, [canadaStreamingInfo]);
 
   const streamingSites = useMemo(() => {
-    return canadaStreamingInfo ? Object.keys(canadaStreamingInfo) : null;
+    return canadaStreamingInfo ? Object.values(canadaStreamingInfo) : null;
   }, [canadaStreamingInfo]);
   // if there is a flaterate offered for the movie, capture in variable
 
   console.log(inCanada, "IN CANADA");
 
   if (!canadaStreamingInfo || Object.keys(canadaStreamingInfo).length === 0) {
-    return <div>This movie is not available for streaming in Canada</div>;
+    return ;
   }
 
   console.log(streamingSites, "Streaming sites");
@@ -69,25 +69,9 @@ function MovieSearchItem(props) {
   return (
     <>
       <li className="movie-list" key={props.index}>
-        {inCanada[2] ? (
-          <div>
-            {" "}
-            This movie is available to watch on:{" "}
-            {Object.values(inCanada[2]).map((logo, index) => {
-              console.log(logo.logo_path, "IMG");
-              return (
-                <div className="image-container">
-                  <img
-                    src={`https://image.tmdb.org/t/p/w200/${logo.logo_path}`}
-                  />
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          <div>This movie is not available for streaming in Canada</div>
-        )}
-        <MovieCard {...props.movie} canadaStreamingInfo={canadaStreamingInfo} />
+        
+
+        <MovieCard {...props.movie} {...inCanada} />
         <div className="flex-container">
           <label htmlFor="add-to-list"></label>
           <select onChange={handleMovieOnChange} name="created-lists" id="">

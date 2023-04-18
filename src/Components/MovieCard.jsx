@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "./Modal";
 
 function MovieCard(props) {
+  
   return (
     <>
       
@@ -17,6 +18,17 @@ function MovieCard(props) {
           className="movie-card"
         />
         <p>{props.overview}</p>
+        {props[1] ? <>
+        <h5>This movie can be streamed in Canada on:</h5>
+        <div className="image-container">
+
+        {Object.values(props[1]).map((site, index) => {
+          return (
+            <img src={`https://image.tmdb.org/t/p/w200/${site.logo_path}`} />
+            );
+          })}
+          </div>
+        </> : <h5>This movie is not available for streaming in Canada</h5>}
       
     </>
   );

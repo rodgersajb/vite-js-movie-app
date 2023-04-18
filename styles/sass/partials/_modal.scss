@@ -1,12 +1,37 @@
-.modal {
-  z-index: 999;
+.modal-container {
   position: fixed;
-  top: 50%;
-  right: 50%;
-  // height: 100vh;
-  border: 3px solid $primary;
-  border-radius: 2rem;
-  transform: translate(-50%, -50%);
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  margin: 0 auto;
 
-  // margin: 0 auto;
+  z-index: 999;
+  .modal {
+    border: 3px solid $primary;
+    border-radius: 2rem;
+    height: 100;
+    width: 50%;
+    background: $secondary;
+    margin: 4rem auto;
+    h2 {
+      text-align: left;
+      padding: 0 0 0 1rem;
+    }
+    .container {
+      display: flex;
+
+      img {
+        width: 50%;
+        height: 40rem;
+      }
+      p {
+        width: 45%;
+      }
+    }
+  }
 }
