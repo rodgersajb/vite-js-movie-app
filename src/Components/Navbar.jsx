@@ -4,6 +4,8 @@ import { db } from "./Firebase";
 import { ref, onValue, push, set } from "firebase/database";
 import UserLists from "./UserLists";
 
+import popcorn from "../assets/popcorn.png"
+
 const Nav = (props) => {
   const { genreOptions } = props;
 
@@ -71,7 +73,7 @@ const Nav = (props) => {
         <div>
           <p>AR</p>
         </div>
-        <img src="public/popcorn.png" alt="" />
+        <img src={popcorn} alt="a bag of popcorn logo" />
         <h1>The Moviebase</h1>
         <form className="form-submit" onSubmit={handleFormSubmit}>
           <label htmlFor="new-list">
