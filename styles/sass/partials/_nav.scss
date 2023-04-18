@@ -46,6 +46,7 @@ nav {
 
     label {
       display: flex;
+      
 
       font-size: 1.8rem;
 
@@ -91,6 +92,11 @@ nav {
           padding: 0 5rem;
         }
       }
+    }
+    .alert {
+      color: $highlights;
+      font-size: 1.4rem;
+      transition: ease-in-out 0.3s;
     }
   }
   img {

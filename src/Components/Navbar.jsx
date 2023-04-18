@@ -83,14 +83,14 @@ const Nav = (props) => {
               onChange={handleInputChange}
               value={userInput}
               placeholder="create a list"
-            />
+              />
             <button className="nav-button" onClick={handleSubmit}>
               🍿
             </button>
+              </label>
             {!isValidInput && message && (
-              <div>Please enter at least three characters</div>
-            )}
-          </label>
+              <div className="alert">Please enter at least three characters</div>
+              )}
         </form>
       </nav>
 
