@@ -16,7 +16,7 @@ function MovieSearchItem(props) {
       `https://api.themoviedb.org/3/movie/${movieId}/watch/providers?api_key=a5e87382f2c41fc47e2facb317187475`
     )
       .then((response) => response.json())
-      .then((data) => setCanadaStreamingInfo(data.results.CA, "DATA"));
+      .then((data) => setCanadaStreamingInfo(data.results.CA));
   }, [movieId]);
 
   useEffect(() => {
@@ -48,13 +48,12 @@ function MovieSearchItem(props) {
   }, [canadaStreamingInfo]);
   // if there is a flaterate offered for the movie, capture in variable
 
-  console.log(inCanada, "IN CANADA");
-
+  
   if (!canadaStreamingInfo || Object.keys(canadaStreamingInfo).length === 0) {
     return ;
   }
 
-  console.log(streamingSites, "Streaming sites");
+  
 
   const handleMovieOnChange = (event) => {
     setSelectedList(event.target.value);

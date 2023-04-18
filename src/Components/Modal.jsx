@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-const Modal = ({ title, poster_path, overview }) => {
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+library.add(faExpand);
+
+const Modal = (props) => {
+  console.log(props, "MODAL");
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -12,7 +19,9 @@ const Modal = ({ title, poster_path, overview }) => {
   };
   return (
     <>
-      <button onClick={openModal}>Open Modal</button>
+      <button onClick={openModal} className="open-modal">
+        <FontAwesomeIcon icon="fa-solid fa-expand" />
+      </button>
       {showModal && (
         <div
           className="modal-container"
@@ -20,16 +29,40 @@ const Modal = ({ title, poster_path, overview }) => {
           onClick={closeModal}
         >
           <div className="modal">
-            <h2>{title}</h2>
+            <header>
+              <h2>{props.title}</h2>
+            </header>
             <div className="container">
               <img
-                src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-                alt={overview}
+                src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`}
+                alt={props.overview}
                 className="movie-card"
               />
-              <p>{overview}</p>
+              <div className="content">
+                <p>{props.overview}</p>
+                <p>
+                  {props.vote_average} / 10 out of {props.vote_count} votes{" "}
+                </p>
+                <p>Released on {props.release_date}</p>
+              </div>
             </div>
-            <button onClick={closeModal}>close Modal</button>
+            <h5>Available in 🍁:</h5>
+            <div className="image-container">
+              {props[1] ? (
+                Object.values(
+                  props[1].map((site, index) => {
+                    return (
+                      <img
+                        src={`https://image.tmdb.org/t/p/w200/${site.logo_path}`}
+                      />
+                    );
+                  })
+                )
+              ) : (
+                <h5>Not available in 🍁</h5>
+              )}
+            </div>
+            <button onClick={closeModal}>x</button>
           </div>
         </div>
       )}

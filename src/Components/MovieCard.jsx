@@ -2,14 +2,12 @@ import React from "react";
 import Modal from "./Modal";
 
 function MovieCard(props) {
-  
+  console.log(props, 'MOVIE CARD')
   return (
     <>
       
         <Modal
-          title={props.title}
-          poster_path={props.poster_path}
-          overview={props.overview}
+          {...props}
         />
         <h2>{props.title}</h2>
         <img
@@ -17,7 +15,7 @@ function MovieCard(props) {
           alt={props.overview}
           className="movie-card"
         />
-        <p>{props.overview}</p>
+        {/* <p>{props.overview}</p>
         {props[1] ? <>
         <h5>This movie can be streamed in Canada on:</h5>
         <div className="image-container">
@@ -28,7 +26,7 @@ function MovieCard(props) {
             );
           })}
           </div>
-        </> : <h5>This movie is not available for streaming in Canada</h5>}
+        </> : <h5>This movie is not available for streaming in Canada</h5>} */}
       
     </>
   );

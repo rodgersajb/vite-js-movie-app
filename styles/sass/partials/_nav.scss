@@ -50,6 +50,7 @@ nav {
       font-size: 1.8rem;
 
       color: $highlights;
+      
 
       input {
         height: 4rem;
@@ -62,10 +63,11 @@ nav {
         background: $highlights;
         padding: 2rem;
         width: 10%;
+        cursor: pointer;
+        transition: width ease-in-out 1s;
         &:hover,
         &:focus {
           width: 100%;
-          transition: width ease-in-out 1s;
         }
       }
 
@@ -81,6 +83,7 @@ nav {
         border-left: none;
         border-radius: 0 25px 25px 0;
         background: $highlights;
+        cursor: pointer;
         &:hover,
         &:focus {
           font-size: 3rem;

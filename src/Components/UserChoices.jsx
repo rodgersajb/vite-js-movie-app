@@ -16,7 +16,7 @@ const UserChoices = (props) => {
       `https://api.themoviedb.org/3/discover/movie?with_genres=${currentGenre}&with_runtine.lte=${time}include_video=true&include_adult=false&api_key=a5e87382f2c41fc47e2facb317187475`
     );
     if (!response.ok) {
-      const message = `An error has occured: ${response.status}`;
+      const message = `An error has occurred: ${response.status}`;
       throw new Error(message);
     }
     const movies = await response.json();
