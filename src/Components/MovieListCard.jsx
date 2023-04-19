@@ -1,5 +1,5 @@
 import { db } from "./Firebase";
-import { ref, update, remove } from "firebase/database";
+import { ref,  remove } from "firebase/database";
 
 const MovieListCard = (props) => {
   const { movie, listId, movieKey} = props;
@@ -19,11 +19,7 @@ const MovieListCard = (props) => {
           alt=""
         />
         
-        {/* <ul>
-          {streamingSites.map((name, index) => {
-            return <li key={index}>{name}</li>;
-          })}
-        </ul> */}
+      
         <button onClick={() => handleRemove(movie.id)}>X</button>;
       </div>
     </>

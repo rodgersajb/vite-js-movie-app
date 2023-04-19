@@ -76,6 +76,7 @@ const Nav = (props) => {
         <img src={popcorn} alt="a bag of popcorn logo" />
         <h1>The Moviebase</h1>
         <form className="form-submit" onSubmit={handleFormSubmit}>
+          
           <label htmlFor="new-list">
             <input
               type="text"

@@ -2,7 +2,7 @@ import React from "react";
 import Modal from "./Modal";
 
 function MovieCard(props) {
-  console.log(props, 'MOVIE CARD')
+  
   return (
     <>
       

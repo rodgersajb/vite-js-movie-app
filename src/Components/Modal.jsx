@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 library.add(faExpand);
 
 const Modal = (props) => {
-  console.log(props, "MODAL");
+  
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
