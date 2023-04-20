@@ -3,12 +3,13 @@ import { useState } from "react";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faExpand } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { ModalContext } from "../Contexts/ModalContext";
+import { useContext } from "react";
 library.add(faExpand);
 
 const Modal = (props) => {
   
-  const [showModal, setShowModal] = useState(false);
+  const { showModal, setShowModal } = useContext(ModalContext);
 
   const openModal = () => {
     setShowModal(true);

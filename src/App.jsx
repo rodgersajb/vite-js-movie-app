@@ -4,6 +4,7 @@ import UserLists from "./Components/UserLists";
 import UserChoices from "./Components/UserChoices";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import Nav from "./Components/Navbar";
+import { ModalProvider } from "./Contexts/ModalContext";
 
 function App() {
   const [genreOptions, setGenreOptions] = useState([]);
@@ -18,10 +19,11 @@ function App() {
 
   return (
     <>
-      <div className="app">
-        
-        <Nav genreOptions={genreOptions} />
-      </div>
+      <ModalProvider>
+        <div className="app">
+          <Nav genreOptions={genreOptions} />
+        </div>
+      </ModalProvider>
     </>
   );
 }

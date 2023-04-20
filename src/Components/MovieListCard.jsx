@@ -1,7 +1,10 @@
 import { db } from "./Firebase";
 import { ref,  remove } from "firebase/database";
 
+
 const MovieListCard = (props) => {
+
+
   const { movie, listId, movieKey} = props;
   
 
@@ -17,6 +20,7 @@ const MovieListCard = (props) => {
         <img
           src={`https://image.tmdb.org/t/p/w200/${props.movie.poster_path}`}
           alt=""
+          
         />
         
       

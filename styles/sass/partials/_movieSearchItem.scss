@@ -8,6 +8,9 @@
     align-items: center;
     justify-content: space-evenly;
     position: relative;
+    img {
+      cursor: pointer;
+    }
     .open-modal {
       position: absolute;
       top: 105px;

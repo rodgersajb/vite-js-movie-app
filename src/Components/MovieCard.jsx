@@ -1,9 +1,22 @@
 import React from "react";
 import Modal from "./Modal";
+import { ModalContext } from "../Contexts/ModalContext";
+import { useContext } from "react";
+
 
 function MovieCard(props) {
   
-  return (
+    const { showModal, setShowModal } = useContext(ModalContext);
+
+    const openModal = () => {
+      setShowModal(true);
+    };
+
+    const closeModal = () => {
+      setShowModal(false)
+    }  
+    
+    return (
     <>
       
         <Modal
@@ -14,6 +27,7 @@ function MovieCard(props) {
           src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`}
           alt={props.overview}
           className="movie-card"
+          onClick={openModal}
         />
         {/* <p>{props.overview}</p>
         {props[1] ? <>
